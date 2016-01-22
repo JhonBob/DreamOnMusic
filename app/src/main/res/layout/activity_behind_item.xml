@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/bg_setting_item"
+    android:clickable="true" android:layout_width="wrap_content"
+    android:layout_height="@dimen/menu_item_height"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@+id/img_flow_state"
+        android:visibility="gone"
+        android:layout_width="42.0dip"
+        android:layout_height="42.0dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+    <LinearLayout android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/menu_item_height"
+        android:layout_centerInParent="true">
+        <TextView android:textSize="@dimen/menu_item_text_size"
+            android:textColor="@color/kw_common_cl_yellow"
+            android:gravity="center"
+            android:id="@+id/tv_status_tip"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="26.0dip"
+            android:layout_marginBottom="5.0dip" />
+        <ImageView android:layout_gravity="center_horizontal"
+            android:id="@+id/img_menu_item"
+            android:layout_width="26.0dip"
+            android:layout_height="26.0dip"
+            android:layout_marginBottom="5.0dip" />
+        <TextView android:textSize="@dimen/menu_item_text_size"
+            android:textColor="@color/kw_common_cl_white"
+            android:id="@+id/title_menu_tiem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/listen_music" />
+    </LinearLayout>
+    <ImageView android:id="@+id/menu_img_new"
+        android:visibility="gone" android:layout_width="12.0dip"
+        android:layout_height="12.0dip"
+        android:layout_marginTop="@dimen/menu_item_tag_margin_top"
+        android:layout_marginRight="@dimen/menu_item_tag_margin_rigth"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" />
+    <ImageView android:id="@+id/tv_downloading_num"
+        android:background="@drawable/menu_has_new"
+        android:layout_width="12.0dip"
+        android:layout_height="12.0dip"
+        android:layout_marginTop="@dimen/menu_item_tag_margin_top"
+        android:layout_marginRight="@dimen/menu_item_tag_margin_rigth"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" />
+    <View android:id="@+id/item_line_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_alignParentBottom="true" />
+    <View android:id="@+id/item_line_top"
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px" android:layout_alignParentTop="true" />
+    <View android:id="@+id/item_line_left"
+        android:layout_width="1.0px"
+        android:layout_height="@dimen/menu_item_height"
+        android:layout_alignParentLeft="true" />
+    <View android:id="@+id/item_line_right"
+        android:layout_width="1.0px"
+        android:layout_height="@dimen/menu_item_height"
+        android:layout_alignParentRight="true" />
+</RelativeLayout>

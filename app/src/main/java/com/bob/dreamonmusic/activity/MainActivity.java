@@ -12,7 +12,8 @@ import android.support.v4.app.FragmentTransaction;
 import com.bob.dreamonmusic.R;
 
 import com.bob.dreamonmusic.SlidingMenu.SlidingMenu;
-import com.bob.dreamonmusic.fragment.LeftFragment;
+import com.bob.dreamonmusic.fragment.MenuFragment;
+import com.bob.dreamonmusic.fragment.LocalMusicFragment;
 import com.bob.dreamonmusic.fragment.MainFragment;
 import com.bob.dreamonmusic.utils.SplashScreen;
 
@@ -25,6 +26,7 @@ public class MainActivity extends FragmentActivity {
 
     //滑动菜单
     public SlidingMenu mSlidingMenu;
+    public FragmentManager fragmentManager;
 
 
     public  Handler handler=new Handler(){
@@ -66,28 +68,48 @@ public class MainActivity extends FragmentActivity {
 
     private void initFragment(){
         //管理器
-        FragmentManager fragmentManager=getSupportFragmentManager();
+        fragmentManager=getSupportFragmentManager();
         //开启事务
         FragmentTransaction ft=fragmentManager.beginTransaction();
         //替换
-        ft.replace(R.id.left_menu, new LeftFragment(), LEFT_TAG);
+        ft.replace(R.id.left_menu, new MenuFragment(), LEFT_TAG);
         ft.replace(R.id.fl_main_container, new MainFragment(), MAIN_TAG);
         //提取
         ft.commit();
     }
 
     //获得菜单对象
-    public LeftFragment getLeftMenuFragment(){
-        FragmentManager fragmentManager=getSupportFragmentManager();
-        LeftFragment leftMenuFragment=(LeftFragment)fragmentManager.findFragmentByTag(LEFT_TAG);
+    public MenuFragment getLeftMenuFragment(){
+        fragmentManager=getSupportFragmentManager();
+        MenuFragment leftMenuFragment=(MenuFragment)fragmentManager.findFragmentByTag(LEFT_TAG);
         return leftMenuFragment;
     }
 
     //获得主窗口对象
     public MainFragment getMainContentFragment(){
-        FragmentManager fragmentManager=getSupportFragmentManager();
+        fragmentManager=getSupportFragmentManager();
         MainFragment mainContentFragment=(MainFragment)fragmentManager.findFragmentByTag(MAIN_TAG);
         return mainContentFragment;
+    }
+
+    //切换到LocalMusicFragment
+    public void switchToLocalMusicFragment(){
+        fragmentManager=getSupportFragmentManager();
+        FragmentTransaction ft=fragmentManager.beginTransaction();
+        ft.replace(R.id.fl_main_container, new LocalMusicFragment());
+        ft.commit();
+    }
+
+    //切换到LocalMusicFragment
+    public void switchToMainFragment(){
+        fragmentManager=getSupportFragmentManager();
+        FragmentTransaction ft=fragmentManager.beginTransaction();
+        ft.replace(R.id.fl_main_container, new MainFragment());
+        ft.commit();
+    }
+
+    public FragmentManager getManager(){
+        return fragmentManager=getSupportFragmentManager();
     }
 
 }

@@ -12,19 +12,4 @@
         <item name="android:windowExitAnimation">@anim/dialog_exit_slide_left</item>
     </style>
 
-    <style name="menu_tab_style">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/menu_tab_bg</item>
-        <item name="android:clickable">true</item>
-        <item name="android:drawablePadding">10dip</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:onClick">clickTab</item>
-        <item name="android:paddingBottom">10dip</item>
-        <item name="android:paddingLeft">20dip</item>
-        <item name="android:paddingTop">10dip</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textSize">23sp</item>
-    </style>
-
 </resources>

@@ -1,18 +1,24 @@
 package com.bob.dreamonmusic.fragment;
 
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.bob.dreamonmusic.R;
 
+
 /**
- * Created by Administrator on 2016/1/21.
+ * Created by Administrator on 2015/7/31.
  */
-public class LeftFragment extends BaseFragment {
+public class LeftFragment extends Fragment {
 
     @Override
-    public View initView(LayoutInflater inflater) {
-        View view=inflater.inflate(R.layout.menu_fragment,null);
-        return view;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        return inflater.inflate(R.layout.viewpager_trans_layout, container, false);
     }
+
 }

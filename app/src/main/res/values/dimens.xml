@@ -10,7 +10,6 @@
     <!-- 15dp -->
 
 
-
     <dimen name="mv_touchlayout_width">116.0px</dimen>
     <dimen name="mv_touchlayout_height">93.0px</dimen>
     <dimen name="audio_effect_seekbar_progress_width">16.0dip</dimen>

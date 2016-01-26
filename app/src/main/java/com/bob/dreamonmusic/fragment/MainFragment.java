@@ -1,6 +1,7 @@
 package com.bob.dreamonmusic.fragment;
 
 
+import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import com.bob.dreamonmusic.MainPager.VideoPager;
 import com.bob.dreamonmusic.MainPager.WarehousePager;
 import com.bob.dreamonmusic.R;
 import com.bob.dreamonmusic.SlidingMenu.SlidingMenu;
+import com.bob.dreamonmusic.TabPageIndicator.TabPageIndicator;
 import com.bob.dreamonmusic.activity.MainActivity;
 
 import java.util.ArrayList;
@@ -25,33 +27,20 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/1/21.
  */
-public class MainFragment extends BaseFragment implements OnClickListener,ViewPager.OnPageChangeListener{
+public class MainFragment extends BaseFragment implements ViewPager.OnPageChangeListener{
 
     private ViewPager mViewPager;
     private List<MainBasePager> pagerList;
     private ContentAdapter mAdapter;
-    private TextView mymusic;
-    private TextView warehouse;
-    private TextView sing;
-    private TextView video;
-    private ImageView more;
+    private TabPageIndicator mIndicator;
+
+    private String [] title=new String[]{"我的","乐库","唱歌","视频"};
 
     @Override
     public View initView(LayoutInflater inflater) {
         View view=inflater.inflate(R.layout.main_fragment,null);
-        mViewPager=(ViewPager)view.findViewById(R.id.vp_cf_page);
-        mymusic=(TextView)view.findViewById(R.id.my_music);
-        warehouse=(TextView)view.findViewById(R.id.warehouse);
-        sing=(TextView)view.findViewById(R.id.sing);
-        video=(TextView)view.findViewById(R.id.video);
-        more=(ImageView)view.findViewById(R.id.more);
-
-        mymusic.setOnClickListener(this);
-        warehouse.setOnClickListener(this);
-        sing.setOnClickListener(this);
-        video.setOnClickListener(this);
-        more.setOnClickListener(this);
-
+        mViewPager=(ViewPager)view.findViewById(R.id.vp_cf_pager);
+        mIndicator=(TabPageIndicator)view.findViewById(R.id.tpi_main_content);
         return view;
     }
 
@@ -68,7 +57,8 @@ public class MainFragment extends BaseFragment implements OnClickListener,ViewPa
         mViewPager.setCurrentItem(0);
         pagerList.get(0).initData();
 
-        mViewPager.setOnPageChangeListener(this);
+        mIndicator.setViewPager(mViewPager);
+        mIndicator.setOnPageChangeListener(this);
     }
 
     class ContentAdapter extends PagerAdapter{
@@ -95,33 +85,11 @@ public class MainFragment extends BaseFragment implements OnClickListener,ViewPa
             //pager.initData();
             return rootView;
         }
-    }
 
-    @Override
-    public void onClick(View v) {
-        int index=-1;
-        switch (v.getId()){
-            case R.id.my_music:
-                index=0;
-                break;
-            case R.id.warehouse:
-                index=1;
-                break;
-            case R.id.sing:
-                index=2;
-                break;
-            case R.id.video:
-                index=3;
-                break;
-            case R.id.more:
-                ((MainActivity)mActivity).mSlidingMenu.showMenu();
-                break;
-            default:
-                break;
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return title[position];
         }
-
-        switchViewPager(index);
-
     }
 
     //页面的切换

@@ -47,7 +47,7 @@ public class SplashScreen {
                 //root.setBackgroundResource(imageResouece);
 
                 //创建Dialog
-                splashDialog=new Dialog(context,android.R.style.Theme_Translucent_NoTitleBar);
+                splashDialog=new Dialog(context,android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
 
                 //确保屏幕全屏
                 if ((context.getWindow().getAttributes().flags & WindowManager.LayoutParams.FLAG_FULLSCREEN)
